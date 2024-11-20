@@ -211,7 +211,10 @@ The MQTT implementation provides:
 - **Device Side**: PubSubClient library for ESP8266
 - **Data Flow**: Real-time sensor data transmission
 - **Monitoring**: Continuous device status tracking
-
+#### MQTT DEMO
+<div align="center">
+  <img src="docs/images/MQTT.png" alt="Dashboard Preview" width="500">
+</div>
 ### MongoDB Data Layer
 
 MongoDB serves as our primary data store, offering robust data management capabilities for environmental monitoring data.
@@ -257,7 +260,10 @@ Our Express.js-based server provides a robust foundation for handling API reques
 - **API Protection**: CORS policy enforcement
 - **Data Safety**: Input sanitization
 - **Access Control**: Rate limiting implementation
-
+- 
+<div align="center">
+  <img src="docs/images/Retrieve_Data.png" alt="Dashboard Preview" width="500">
+</div>
 ### API Reference
 
 Our RESTful API provides comprehensive endpoints for system interaction:
