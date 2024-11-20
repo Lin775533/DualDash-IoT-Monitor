@@ -74,7 +74,6 @@ graph LR
 - [Getting Started](#-getting-started)
 - [AWS Integration](#-aws-integration)
 - [Development](#-development)
-- [Contributing](#-contributing)
 - [License](#-license)
 - [Acknowledgments](#-acknowledgments)
 
