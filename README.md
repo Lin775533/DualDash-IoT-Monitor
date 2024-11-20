@@ -95,34 +95,34 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
   <table>
     <tr>
       <td align="center">
-        <img src="docs/images/Argriculture.png" width="120" alt="Smart Agriculture"/><br/>
+        <img src="docs/images/Argriculture.jpg" width="120" alt="Smart Agriculture"/><br/>
         <b>Smart Agriculture</b><br/>
         Optimize crop growth with automated climate control
       </td>
       <td align="center">
-        <img src="docs/images/Industry.png" width="120" alt="Industrial"/><br/>
+        <img src="docs/images/Industry.jpg" width="120" alt="Industrial"/><br/>
         <b>Industrial</b><br/>
         Monitor inventory conditions & security
       </td>
       <td align="center">
-        <img src="docs/images/Equipment.png" width="120" alt="Data Centers"/><br/>
+        <img src="docs/images/Equipment.jpg" width="120" alt="Data Centers"/><br/>
         <b>Data Centers</b><br/>
         Protect IT equipment & optimize power
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="docs/images/Lab.png" width="120" alt="Laboratory"/><br/>
+        <img src="docs/images/Lab.jpg" width="120" alt="Laboratory"/><br/>
         <b>Laboratory</b><br/>
         Maintain precise research conditions
       </td>
       <td align="center">
-        <img src="docs/images/Home.png" width="120" alt="Smart Buildings"/><br/>
+        <img src="docs/images/Home.jpg" width="120" alt="Smart Buildings"/><br/>
         <b>Smart Buildings</b><br/>
         Enhance comfort & energy efficiency
       </td>
       <td align="center">
-        <img src="docs/images/Cold_Chain.png" width="120" alt="Cold Chain"/><br/>
+        <img src="docs/images/Cold_Chain.jpg" width="120" alt="Cold Chain"/><br/>
         <b>Cold Chain</b><br/>
         Track conditions during transport
       </td>
