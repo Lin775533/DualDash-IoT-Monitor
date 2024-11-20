@@ -375,3 +375,9 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
   <img src="docs/images/ESP8266.png" alt="ESP8266" width="500">
   <img src="docs/images/WIFI.png" alt="WIFI" width="500">
 </div>
+
+### Threshold ADjustment Dashboard
+
+<div align="center">
+  <img src="docs/images/Threshold_Adjustment.png" alt="Dashboard Preview" width="500">
+</div>
