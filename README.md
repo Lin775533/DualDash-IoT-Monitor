@@ -9,20 +9,43 @@
 
 > A professional IoT solution for real-time environmental monitoring, featuring multi-sensor data collection, instant alerts, and comprehensive data visualization through a modern web dashboard.
 
-### Cloud Infrastructure
+## 🏗 System Architecture
+
 ```mermaid
 graph LR
-    subgraph AWS Cloud
-        IC[IoT Core] --> Lambda[Lambda Functions]
-        Lambda --> DDB[(DynamoDB)]
-        Lambda --> SNS[SNS]
-        SNS --> Email[Email Alerts]
-        SNS --> SMS[SMS Alerts]
-        DDB --> API[API Gateway]
-        API --> WEB[Web Dashboard]
+    subgraph Hardware
+        LDR[LDR Sensor] -->|Light Data| ESP[ESP8266]
+        MPU[MPU6050] -->|Movement Data| ESP
+        ESP -->|Display| LCD[LCD Display]
     end
-    ESP[ESP8266] -->|MQTT| IC
-    WEB -->|REST| API
+
+    subgraph Local Processing
+        ESP -->|Process & Format| MQTT[MQTT Client]
+        ESP -->|Check| TH[Thresholds]
+    end
+
+    subgraph Cloud Services
+        MQTT -->|Publish| NODE[Node.js Server]
+        NODE -->|Store Data| DB[(MongoDB)]
+        NODE -->|Process| ALERT[Alert System]
+        ALERT -->|Notifications| NOTIFY[Email/SMS]
+    end
+
+    subgraph Data Visualization
+        DB <-->|Query| API[REST API]
+        API -->|Read Data| VDASH[Visualization Dashboard]
+        VDASH -->|View Data| USER1[User]
+    end
+
+    subgraph Threshold Control
+        TDASH[Threshold Dashboard] -->|Update| TH
+        USER2[User] -->|Adjust Thresholds| TDASH
+    end
+
+    style ESP fill:#f9f,stroke:#333,stroke-width:2px
+    style DB fill:#bbf,stroke:#333,stroke-width:2px
+    style VDASH fill:#bfb,stroke:#333,stroke-width:2px
+    style TDASH fill:#fbf,stroke:#333,stroke-width:2px
 ```
 
 <div align="center">
@@ -127,46 +150,7 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
   - Error handling & recovery
   - Comprehensive logging
 
-## 🏗 System Architecture
 
-### Core Components
-
-```mermaid
-graph LR
-    subgraph Hardware
-        LDR[LDR Sensor] -->|Light Data| ESP[ESP8266]
-        MPU[MPU6050] -->|Movement Data| ESP
-        ESP -->|Display| LCD[LCD Display]
-    end
-
-    subgraph Local Processing
-        ESP -->|Process & Format| MQTT[MQTT Client]
-        ESP -->|Check| TH[Thresholds]
-    end
-
-    subgraph Cloud Services
-        MQTT -->|Publish| NODE[Node.js Server]
-        NODE -->|Store Data| DB[(MongoDB)]
-        NODE -->|Process| ALERT[Alert System]
-        ALERT -->|Notifications| NOTIFY[Email/SMS]
-    end
-
-    subgraph Data Visualization
-        DB <-->|Query| API[REST API]
-        API -->|Read Data| VDASH[Visualization Dashboard]
-        VDASH -->|View Data| USER1[User]
-    end
-
-    subgraph Threshold Control
-        TDASH[Threshold Dashboard] -->|Update| TH
-        USER2[User] -->|Adjust Thresholds| TDASH
-    end
-
-    style ESP fill:#f9f,stroke:#333,stroke-width:2px
-    style DB fill:#bbf,stroke:#333,stroke-width:2px
-    style VDASH fill:#bfb,stroke:#333,stroke-width:2px
-    style TDASH fill:#fbf,stroke:#333,stroke-width:2px
-```
 
 ### Data Flow
 1. **Data Collection** → Sensors gather environmental data
