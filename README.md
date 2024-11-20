@@ -4,7 +4,6 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-%3E%3D4.4-green)](https://www.mongodb.com/)
 [![ESP8266](https://img.shields.io/badge/ESP8266-NodeMCU-blue)](https://www.espressif.com/)
 [![AWS IoT Core](https://img.shields.io/badge/AWS-IoT%20Core-orange)](https://aws.amazon.com/iot-core/)
-[![AWS DynamoDB](https://img.shields.io/badge/AWS-DynamoDB-blue)](https://aws.amazon.com/dynamodb/)
 [![AWS SNS](https://img.shields.io/badge/AWS-SNS-green)](https://aws.amazon.com/sns/)
 [![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange)](https://aws.amazon.com/lambda/)
 
@@ -342,7 +341,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    ```
 
 3. **Client Layer**
-   ```
+```
    Web Dashboard
    ├── Real-time Display
    │   ├── Current Sensor Values
@@ -362,6 +361,7 @@ graph TD
     B -->|Store| C[(MongoDB)]
     B -->|REST API| D[Web Dashboard]
     D -->|Display| E[Charts & Stats]
+
 ```
 
 ### Alert System

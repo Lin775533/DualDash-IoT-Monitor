@@ -204,22 +204,3 @@ DEBUG=envmonitor:* npm start
 // Device
 #define DEBUG_MODE 1
 ```
-
-## Contributing Guidelines
-
-### Code Style
-- Follow ESLint configuration
-- Use Prettier for formatting
-- Follow Angular commit message convention
-
-### Pull Request Process
-1. Create feature branch
-2. Update documentation
-3. Add tests
-4. Create PR with description
-
-### Review Process
-1. Code review by maintainers
-2. Pass all tests
-3. Update based on feedback
-4. Merge when approved
