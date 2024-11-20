@@ -254,15 +254,6 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - Use environment variables for sensitive data
 - Follow AWS security best practices
 
-## Contributing
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - MQTT Broker: test.mosquitto.org
