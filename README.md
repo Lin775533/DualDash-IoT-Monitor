@@ -140,7 +140,7 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
 ## ⭐ Features
 
 - **Multi-Sensor Integration**
-  - Temperature & Humidity (DHT11)
+  - LCD Display
   - Ambient Light (LDR)
   - Motion Detection (MPU6050)
   - Visual & Audio Alerts
@@ -158,7 +158,6 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
   - AWS IoT Core integration
 
 - **Security & Reliability**
-  - SSL/TLS encryption
   - Automated data backup
   - Error handling & recovery
   - Comprehensive logging
