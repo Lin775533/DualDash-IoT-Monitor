@@ -269,7 +269,10 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - LED for visual alerts
 - Buzzer for audio alerts
 <div align="center">
-  <img src="docs/images/AWS_SNS.png" alt="Dashboard Preview" width="1000">
+  <img src="docs/images/ESP8266.png" alt="Dashboard Preview" width="1000">
+</div>
+<div align="center">
+  <img src="docs/images/WIFI.png" alt="Dashboard Preview" width="1000">
 </div>
 
 ### Data Flow
