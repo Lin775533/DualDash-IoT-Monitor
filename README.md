@@ -250,7 +250,7 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 
 ### AWS SNS Example
 <div align="center">
-  <img src="docs/images/AES_SNS_Warning.png" alt="Dashboard Preview" width="1000">
+  <img src="docs/images/AWS_SNS.png" alt="Dashboard Preview" width="1000">
 </div>
 
 
