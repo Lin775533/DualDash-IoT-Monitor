@@ -273,13 +273,3 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
   <img src="docs/images/ESP8266.png" alt="ESP8266" width="500">
   <img src="docs/images/WIFI.png" alt="WIFI" width="500">
 </div>
-
-### Data Flow
-```mermaid
-graph TD
-    A[ESP8266] -->|MQTT| B[Node.js Server]
-    B -->|Store| C[(MongoDB)]
-    B -->|REST API| D[Web Dashboard]
-    D -->|Display| E[Charts & Stats]
-
-```
