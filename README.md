@@ -13,39 +13,52 @@
 
 ```mermaid
 graph LR
-    subgraph Hardware
+    %% Increase size and spacing
+    linkStyle default stroke-width:2px
+
+    subgraph Hardware[" Hardware "]
+        style Hardware fill:#f5f5f5,stroke:#333,stroke-width:2px
         LDR[LDR Sensor] -->|Light Data| ESP[ESP8266]
         MPU[MPU6050] -->|Movement Data| ESP
         ESP -->|Display| LCD[LCD Display]
     end
 
-    subgraph Local Processing
+    subgraph Local["Local Processing"]
+        style Local fill:#e6e6e6,stroke:#333,stroke-width:2px
         ESP -->|Process & Format| MQTT[MQTT Client]
         ESP -->|Check| TH[Thresholds]
     end
 
-    subgraph Cloud Services
+    subgraph Cloud["Cloud Services"]
+        style Cloud fill:#f0f0f0,stroke:#333,stroke-width:2px
         MQTT -->|Publish| NODE[Node.js Server]
         NODE -->|Store Data| DB[(MongoDB)]
         NODE -->|Process| ALERT[Alert System]
         ALERT -->|Notifications| NOTIFY[Email/SMS]
     end
 
-    subgraph Data Visualization
+    subgraph Viz["Data Visualization"]
+        style Viz fill:#e8e8e8,stroke:#333,stroke-width:2px
         DB <-->|Query| API[REST API]
         API -->|Read Data| VDASH[Visualization Dashboard]
         VDASH -->|View Data| USER1[User]
     end
 
-    subgraph Threshold Control
+    subgraph Control["Threshold Control"]
+        style Control fill:#f2f2f2,stroke:#333,stroke-width:2px
         TDASH[Threshold Dashboard] -->|Update| TH
         USER2[User] -->|Adjust Thresholds| TDASH
     end
 
-    style ESP fill:#f9f,stroke:#333,stroke-width:2px
-    style DB fill:#bbf,stroke:#333,stroke-width:2px
-    style VDASH fill:#bfb,stroke:#333,stroke-width:2px
-    style TDASH fill:#fbf,stroke:#333,stroke-width:2px
+    %% Node Styles with better contrast
+    style ESP fill:#d4e6f1,stroke:#333,stroke-width:3px
+    style DB fill:#d5f5e3,stroke:#333,stroke-width:3px
+    style VDASH fill:#fad7a0,stroke:#333,stroke-width:3px
+    style TDASH fill:#d7bde2,stroke:#333,stroke-width:3px
+    
+    %% Make all text black for better readability
+    classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    classDef emphasis fill:#e8e8e8,stroke:#333,stroke-width:3px,color:#000
 ```
 
 <div align="center">
