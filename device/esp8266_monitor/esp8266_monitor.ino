@@ -7,8 +7,8 @@
 #include <ArduinoJson.h>
 
 // WiFi Configuration
-const char* ssid = "Jimmy&Tim";
-const char* password = "1234567890";
+const char* ssid = "Your_WIFI";
+const char* password = "YOUR_Password";
 
 // MQTT Configuration
 const char* mqtt_server = "test.mosquitto.org";  // More reliable public MQTT broker
