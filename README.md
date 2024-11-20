@@ -163,14 +163,6 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
   - Comprehensive logging
 
 
-
-### Data Flow
-1. **Data Collection** → Sensors gather environmental data
-2. **Local Processing** → ESP8266 processes and validates data
-3. **Cloud Transmission** → Data sent to cloud via MQTT
-4. **Storage & Analysis** → Server processes and stores data
-5. **Visualization** → Data displayed on web dashboard
-
 ## 🛠 Technical Implementation
 
 ### Hardware Configuration
