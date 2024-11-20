@@ -179,6 +179,64 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
 - **IoT**: MQTT, AWS IoT Core
 - **DevOps**: Docker, PM2
 
+## 🔌 Server & Communication
+
+### MQTT Communication
+- **Broker**: test.mosquitto.org (Public MQTT Broker)
+- **Topics**:
+  - `envmonitor/data` - Sensor readings
+  - `envmonitor/alerts` - Alert messages
+  - `envmonitor/device/status` - Device health status
+- **Features**:
+  - Basic publish/subscribe functionality
+  - Automatic reconnection handling
+  - JSON message formatting
+  - Error logging and monitoring
+- **Implementation**:
+  - Node.js MQTT client (mqtt@4.3.7)
+  - PubSubClient for ESP8266
+  - Real-time data transmission
+  - Device status monitoring
+
+### MongoDB Database
+- **Version**: MongoDB 4.4+
+- **Collections**:
+  - `sensor_data` - Raw sensor readings
+  - `alerts` - Alert history
+  - `device_logs` - System logs
+  - `thresholds` - Alert thresholds
+- **Features**:
+  - Time-series data optimization
+  - Automatic data archiving
+  - Indexing for quick queries
+  - Data aggregation pipelines
+
+### Node.js Server
+- **Framework**: Express.js
+- **Key Components**:
+  - RESTful API endpoints
+  - WebSocket support
+  - Authentication middleware
+  - Rate limiting
+- **Features**:
+  - Real-time data processing
+  - Data validation
+  - Error handling
+  - API documentation
+- **Security**:
+  - JWT authentication
+  - CORS protection
+  - Input sanitization
+  - Rate limiting
+
+### API Endpoints
+```plaintext
+GET  /api/v1/data      - Retrieve sensor data
+POST /api/v1/threshold - Update thresholds
+GET  /api/v1/alerts    - Get alert history
+POST /api/v1/device    - Update device settings
+```
+
 ## 🚀 Getting Started
 
 ### Prerequisites
