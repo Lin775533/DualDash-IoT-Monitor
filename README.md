@@ -60,7 +60,7 @@ graph LR
     classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000
     classDef emphasis fill:#e8e8e8,stroke:#333,stroke-width:3px,color:#000
 ```
-
+## System Demo
 <div align="center">
   <img src="docs/images/IOT_Demo-ezgif.com-video-to-gif-converter.gif" alt="Dashboard Preview" width="600">
 </div>
