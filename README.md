@@ -268,7 +268,7 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - MPU6050 Accelerometer
 - LED for visual alerts
 - Buzzer for audio alerts
-- 
+
 <div align="center" style="display: flex; justify-content: center; gap: 20px;">
   <img src="docs/images/ESP8266.png" alt="ESP8266" width="500">
   <img src="docs/images/WIFI.png" alt="WIFI" width="500">
