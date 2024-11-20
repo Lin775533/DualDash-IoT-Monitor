@@ -9,6 +9,53 @@
 
 > A professional IoT solution for real-time environmental monitoring, featuring multi-sensor data collection, instant alerts, and comprehensive data visualization through a modern web dashboard.
 
+## 📑 Table of Contents
+- [Overview](#-overview)
+- [Features](#-features)
+- [System Architecture](#-system-architecture)
+- [Technical Implementation](#-technical-implementation)
+- [Getting Started](#-getting-started)
+- [AWS Integration](#-aws-integration)
+- [Demo Showcase](#-demo-showcase)
+- [Acknowledgments](#acknowledgments)
+
+## 🔍 Overview
+
+Smart Environment Monitor is an enterprise-grade IoT system that combines hardware sensors, cloud connectivity, and data analytics to provide comprehensive environmental monitoring. The system utilizes ESP8266 microcontrollers and various sensors to capture real-time environmental data, process it through a robust backend infrastructure, and present actionable insights through an intuitive web interface.
+
+### Key Capabilities
+- Real-time environmental data monitoring
+- Instant alert notifications
+- Historical data analysis
+- Cloud-based data storage
+- Mobile-responsive dashboard
+
+## ⭐ Features
+
+### Hardware Integration
+- LCD Display for real-time readings
+- Ambient Light (LDR) sensing
+- Motion Detection (MPU6050)
+- Visual & Audio Alerts
+
+### Software Capabilities
+- Real-time data analysis
+- Customizable alert thresholds
+- Historical trend analysis
+- Data export functionality
+
+### System Features
+- MQTT-based communication
+- REST API endpoints
+- MongoDB data storage
+- AWS IoT Core integration
+
+### Security & Reliability
+- Automated data backup
+- Error handling & recovery
+- Comprehensive logging
+- Access control
+
 ## 🏗 System Architecture
 
 ```mermaid
@@ -136,32 +183,6 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
 - 🔐 Compliance & Documentation
 - ⚙️ Automation & Integration
 
-## ⭐ Features
-
-- **Multi-Sensor Integration**
-  - LCD Display
-  - Ambient Light (LDR)
-  - Motion Detection (MPU6050)
-  - Visual & Audio Alerts
-
-- **Advanced Data Processing**
-  - Real-time data analysis
-  - Customizable alert thresholds
-  - Historical trend analysis
-  - Data export capabilities
-
-- **Robust Architecture**
-  - MQTT-based communication
-  - REST API endpoints
-  - MongoDB data storage
-  - AWS IoT Core integration
-
-- **Security & Reliability**
-  - Automated data backup
-  - Error handling & recovery
-  - Comprehensive logging
-
-
 ## 🛠 Technical Implementation
 
 ### Hardware Configuration
@@ -173,60 +194,36 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
 | LED | GPIO12 (D6) | Visual Alerts |
 | Buzzer | GPIO14 (D5) | Audio Alerts |
 
-### Software Stack
-- **Backend**: Node.js, Express.js, MongoDB
-- **Frontend**: HTML5, JavaScript, Chart.js
-- **IoT**: MQTT, AWS IoT Core
-- **DevOps**: Docker, PM2
+### Communication Layer (MQTT)
 
-## 🔌 Server & Communication Architecture
+The MQTT protocol enables real-time communication between IoT devices and the server.
 
-Our system employs a robust client-server architecture with three main components: MQTT for real-time communication, MongoDB for data persistence, and a Node.js server for business logic and API handling.
+#### Broker & Topics
+- **Broker**: test.mosquitto.org (Public MQTT Broker)
+- **Topic Structure**:
+  ```plaintext
+  envmonitor/
+  ├── data           # Real-time sensor readings
+  ├── alerts         # System alerts and notifications
+  └── device/status  # Device health monitoring
+  ```
 
-### MQTT Communication Layer
-
-The MQTT protocol serves as the backbone of our real-time communication system, enabling seamless data flow between IoT devices and the server.
-
-#### Broker Configuration
-We utilize the `test.mosquitto.org` public broker for message handling, making it easy to get started without complex setup requirements.
-
-#### Topic Structure
-Our MQTT topics are organized hierarchically for efficient message routing:
-```plaintext
-envmonitor/
-├── data           # Real-time sensor readings
-├── alerts         # System alerts and notifications
-└── device/status  # Device health monitoring
-```
-
-#### Communication Features
-The MQTT implementation provides:
-- Real-time bidirectional communication
+#### Implementation Details
+- Node.js MQTT client (v4.3.7) for server
+- PubSubClient for ESP8266
+- Real-time data transmission
 - Automatic connection recovery
-- Structured JSON message format
-- Comprehensive error tracking
 
-#### Technical Implementation
-- **Server Side**: Node.js MQTT client (v4.3.7)
-- **Device Side**: PubSubClient library for ESP8266
-- **Data Flow**: Real-time sensor data transmission
-- **Monitoring**: Continuous device status tracking
-
-#### MQTT DEMO
-<div align="left">
-  <img src="docs/images/MQTT.png" alt="Dashboard Preview" width="500">
+<div align="center">
+  <img src="docs/images/MQTT.png" alt="MQTT Demo" width="700">
+  <p><em>MQTT Communication Demo</em></p>
 </div>
 
-### MongoDB Data Layer
+### Data Layer (MongoDB)
 
-MongoDB serves as our primary data store, offering robust data management capabilities for environmental monitoring data.
+MongoDB manages our data persistence with optimized storage and retrieval capabilities.
 
-#### Database Configuration
-- Running on MongoDB 4.4+
-- Optimized for time-series data
-- Configured for high-performance querying
-
-#### Collection Structure
+#### Database Structure
 ```plaintext
 smart_environment_db/
 ├── sensor_data/  # Environmental measurements
@@ -235,43 +232,28 @@ smart_environment_db/
 └── thresholds/   # Alert threshold configurations
 ```
 
-#### Database Features
-- **Time-Series Optimization**: Efficient storage and retrieval of temporal data
-- **Automated Archiving**: Systematic data retention management
-- **Query Performance**: Optimized indexing for fast data access
-- **Analytics Support**: Advanced aggregation pipelines for data analysis
+#### Key Features
+- Time-series optimization
+- Automated data archiving
+- Optimized indexing
+- Advanced aggregation
 
-### Node.js Application Server
+### Application Server (Node.js)
 
-Our Express.js-based server provides a robust foundation for handling API requests and managing business logic.
+Our Express.js server handles API requests and business logic with robust security measures.
 
-#### Core Components
-- **API Layer**: RESTful endpoints for data access
-- **Real-Time Support**: WebSocket integration
-- **Security Layer**: Authentication and authorization
-- **Rate Control**: Request limiting and traffic management
+#### Core Features
+- RESTful API endpoints
+- Real-time WebSocket support
+- JWT authentication
+- Rate limiting & CORS protection
 
-#### Server Features
-- **Data Processing**: Real-time sensor data handling
-- **Validation**: Comprehensive input validation
-- **Error Management**: Structured error handling
-- **Documentation**: Interactive API documentation
-
-#### Security Implementation
-- **Authentication**: JWT-based secure access
-- **API Protection**: CORS policy enforcement
-- **Data Safety**: Input sanitization
-- **Access Control**: Rate limiting implementation
-  
-#### Server DEMO
-<div align="left">
-  <img src="docs/images/Retrieve_Data.png" alt="Dashboard Preview" width="500">
+<div align="center">
+  <img src="docs/images/Retrieve_Data.png" alt="Server Demo" width="700">
+  <p><em>Data Retrieval Demo</em></p>
 </div>
 
-### API Reference
-
-Our RESTful API provides comprehensive endpoints for system interaction:
-
+#### API Endpoints
 ```plaintext
 Endpoint                 Method  Description
 ────────────────────────────────────────────────────────
@@ -280,8 +262,6 @@ Endpoint                 Method  Description
 /api/v1/alerts          GET     Retrieve alert history
 /api/v1/device          POST    Update device settings
 ```
-
-Each endpoint is designed for specific functionality, ensuring efficient system management and data access.
 
 ## 🚀 Getting Started
 
@@ -298,62 +278,32 @@ Each endpoint is designed for specific functionality, ensuring efficient system 
 4. Deploy hardware components
 5. Start the application
 
-Detailed setup instructions available in our [Development Guide](docs/development.md).
-
-## AWS Integration
+## 🌩 AWS Integration
 
 ### AWS Services Used
 - **AWS IoT Core**: For secure MQTT communication
 - **AWS SNS**: For alert notifications
-- **AWS DynamoDB** (Optional): For data storage
-
-### Setup Instructions
-
-1. **AWS IoT Core Setup**
-   - Create a Thing in AWS IoT Core
-   - Download certificates (cert.pem, private.key, public.key)
-   - Place certificates in `certs/` directory
-   - Rename certificates to match config:
-     - `Monitor.cert.pem`
-     - `Monitor.private.key`
-     - `Monitor.public.key`
-     - `root-CA.crt`
-
-2. **AWS SNS Setup**
-   - Create an SNS topic
-   - Create a subscription (email, SMS, etc.)
-   - Note down the Topic ARN
-
-3. **Configuration**
-   - Copy `config/aws-config.template.js` to `config/aws-config.js`
-   - Update with your AWS details:
-     ```javascript
-     {
-         region: 'YOUR_AWS_REGION',
-         iot: {
-             endpoint: 'YOUR_IOT_ENDPOINT',
-             // other IoT settings...
-         },
-         sns: {
-             topicArn: 'YOUR_SNS_TOPIC_ARN',
-             accessKeyId: 'YOUR_ACCESS_KEY_ID',
-             secretAccessKey: 'YOUR_SECRET_ACCESS_KEY'
-         }
-     }
-     ```
-
-4. **IAM Setup**
-   - Create an IAM policy for IoT Core access
-   - Attach policy to your certificates
-   - Required permissions:
-     - `iot:Connect`
-     - `iot:Publish`
-     - `iot:Subscribe`
-     - `iot:Receive`
+- **AWS DynamoDB**: For data storage (optional)
 
 ### AWS SNS Example
 <div align="center">
-  <img src="docs/images/AWS_SNS.png" alt="Dashboard Preview" width="1000">
+  <img src="docs/images/AWS_SNS.png" alt="AWS SNS Demo" width="1000">
+  <p><em>AWS SNS Integration Demo</em></p>
+</div>
+
+## 📸 Demo Showcase
+
+### Hardware Setup
+<div align="center" style="display: flex; justify-content: center; gap: 20px;">
+  <img src="docs/images/ESP8266.png" alt="ESP8266" width="400">
+  <img src="docs/images/WIFI.png" alt="WIFI" width="400">
+</div>
+<p align="center"><em>ESP8266 Hardware Setup and WiFi Connection</em></p>
+
+### Threshold Management
+<div align="center">
+  <img src="docs/images/Threshold_Adjustment.png" alt="Threshold Dashboard" width="700">
+  <p><em>Threshold Adjustment Dashboard</em></p>
 </div>
 
 ## Acknowledgments
@@ -361,23 +311,3 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - Chart.js for data visualization
 - Bootstrap for UI components
 - ESP8266 Community
-
-
-### Hardware Components
-- ESP8266 NodeMCU
-- DHT11 Temperature & Humidity Sensor
-- Light Dependent Resistor (LDR)
-- MPU6050 Accelerometer
-- LED for visual alerts
-- Buzzer for audio alerts
-
-<div align="center" style="display: flex; justify-content: center; gap: 20px;">
-  <img src="docs/images/ESP8266.png" alt="ESP8266" width="500">
-  <img src="docs/images/WIFI.png" alt="WIFI" width="500">
-</div>
-
-### Threshold ADjustment Dashboard
-
-<div align="center">
-  <img src="docs/images/Threshold_Adjustment.png" alt="Dashboard Preview" width="500">
-</div>
