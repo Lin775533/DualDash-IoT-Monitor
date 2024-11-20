@@ -179,63 +179,99 @@ Smart Environment Monitor is an enterprise-grade IoT system that combines hardwa
 - **IoT**: MQTT, AWS IoT Core
 - **DevOps**: Docker, PM2
 
-## 🔌 Server & Communication
+## 🔌 Server & Communication Architecture
 
-### MQTT Communication
-- **Broker**: test.mosquitto.org (Public MQTT Broker)
-- **Topics**:
-  - `envmonitor/data` - Sensor readings
-  - `envmonitor/alerts` - Alert messages
-  - `envmonitor/device/status` - Device health status
-- **Features**:
-  - Basic publish/subscribe functionality
-  - Automatic reconnection handling
-  - JSON message formatting
-  - Error logging and monitoring
-- **Implementation**:
-  - Node.js MQTT client (mqtt@4.3.7)
-  - PubSubClient for ESP8266
-  - Real-time data transmission
-  - Device status monitoring
+Our system employs a robust client-server architecture with three main components: MQTT for real-time communication, MongoDB for data persistence, and a Node.js server for business logic and API handling.
 
-### MongoDB Database
-- **Version**: MongoDB 4.4+
-- **Collections**:
-  - `sensor_data` - Raw sensor readings
-  - `alerts` - Alert history
-  - `device_logs` - System logs
-  - `thresholds` - Alert thresholds
-- **Features**:
-  - Time-series data optimization
-  - Automatic data archiving
-  - Indexing for quick queries
-  - Data aggregation pipelines
+### MQTT Communication Layer
 
-### Node.js Server
-- **Framework**: Express.js
-- **Key Components**:
-  - RESTful API endpoints
-  - WebSocket support
-  - Authentication middleware
-  - Rate limiting
-- **Features**:
-  - Real-time data processing
-  - Data validation
-  - Error handling
-  - API documentation
-- **Security**:
-  - JWT authentication
-  - CORS protection
-  - Input sanitization
-  - Rate limiting
+The MQTT protocol serves as the backbone of our real-time communication system, enabling seamless data flow between IoT devices and the server.
 
-### API Endpoints
+#### Broker Configuration
+We utilize the `test.mosquitto.org` public broker for message handling, making it easy to get started without complex setup requirements.
+
+#### Topic Structure
+Our MQTT topics are organized hierarchically for efficient message routing:
 ```plaintext
-GET  /api/v1/data      - Retrieve sensor data
-POST /api/v1/threshold - Update thresholds
-GET  /api/v1/alerts    - Get alert history
-POST /api/v1/device    - Update device settings
+envmonitor/
+├── data           # Real-time sensor readings
+├── alerts         # System alerts and notifications
+└── device/status  # Device health monitoring
 ```
+
+#### Communication Features
+The MQTT implementation provides:
+- Real-time bidirectional communication
+- Automatic connection recovery
+- Structured JSON message format
+- Comprehensive error tracking
+
+#### Technical Implementation
+- **Server Side**: Node.js MQTT client (v4.3.7)
+- **Device Side**: PubSubClient library for ESP8266
+- **Data Flow**: Real-time sensor data transmission
+- **Monitoring**: Continuous device status tracking
+
+### MongoDB Data Layer
+
+MongoDB serves as our primary data store, offering robust data management capabilities for environmental monitoring data.
+
+#### Database Configuration
+- Running on MongoDB 4.4+
+- Optimized for time-series data
+- Configured for high-performance querying
+
+#### Collection Structure
+```plaintext
+smart_environment_db/
+├── sensor_data/  # Environmental measurements
+├── alerts/       # Alert records
+├── device_logs/  # System operation logs
+└── thresholds/   # Alert threshold configurations
+```
+
+#### Database Features
+- **Time-Series Optimization**: Efficient storage and retrieval of temporal data
+- **Automated Archiving**: Systematic data retention management
+- **Query Performance**: Optimized indexing for fast data access
+- **Analytics Support**: Advanced aggregation pipelines for data analysis
+
+### Node.js Application Server
+
+Our Express.js-based server provides a robust foundation for handling API requests and managing business logic.
+
+#### Core Components
+- **API Layer**: RESTful endpoints for data access
+- **Real-Time Support**: WebSocket integration
+- **Security Layer**: Authentication and authorization
+- **Rate Control**: Request limiting and traffic management
+
+#### Server Features
+- **Data Processing**: Real-time sensor data handling
+- **Validation**: Comprehensive input validation
+- **Error Management**: Structured error handling
+- **Documentation**: Interactive API documentation
+
+#### Security Implementation
+- **Authentication**: JWT-based secure access
+- **API Protection**: CORS policy enforcement
+- **Data Safety**: Input sanitization
+- **Access Control**: Rate limiting implementation
+
+### API Reference
+
+Our RESTful API provides comprehensive endpoints for system interaction:
+
+```plaintext
+Endpoint                 Method  Description
+────────────────────────────────────────────────────────
+/api/v1/data            GET     Fetch sensor readings
+/api/v1/threshold       POST    Modify alert thresholds
+/api/v1/alerts          GET     Retrieve alert history
+/api/v1/device          POST    Update device settings
+```
+
+Each endpoint is designed for specific functionality, ensuring efficient system management and data access.
 
 ## 🚀 Getting Started
 
@@ -309,7 +345,6 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 <div align="center">
   <img src="docs/images/AWS_SNS.png" alt="Dashboard Preview" width="1000">
 </div>
-
 
 ## Acknowledgments
 - MQTT Broker: test.mosquitto.org
