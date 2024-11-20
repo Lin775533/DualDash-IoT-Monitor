@@ -341,7 +341,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    ```
 
 3. **Client Layer**
-   ```
+```
    Web Dashboard
    ├── Real-time Display
    │   ├── Current Sensor Values
@@ -361,6 +361,7 @@ graph TD
     B -->|Store| C[(MongoDB)]
     B -->|REST API| D[Web Dashboard]
     D -->|Display| E[Charts & Stats]
+
 ```
 
 ### Alert System
