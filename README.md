@@ -62,7 +62,7 @@ graph LR
 ```
 
 <div align="center">
-  <img src="docs/images/dashboard.jpg" alt="Dashboard Preview" width="600">
+  <img src="IOT_Demo-ezgif.com-video-to-gif-converter.gif" alt="Dashboard Preview" width="600">
 </div>
 
 ## 📑 Table of Contents
