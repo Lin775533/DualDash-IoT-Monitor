@@ -213,7 +213,7 @@ The MQTT implementation provides:
 - **Monitoring**: Continuous device status tracking
 
 #### MQTT DEMO
-<div align="center">
+<div align="left">
   <img src="docs/images/MQTT.png" alt="Dashboard Preview" width="500">
 </div>
 
@@ -262,8 +262,9 @@ Our Express.js-based server provides a robust foundation for handling API reques
 - **API Protection**: CORS policy enforcement
 - **Data Safety**: Input sanitization
 - **Access Control**: Rate limiting implementation
-
-<div align="center">
+  
+#### Server DEMO
+<div align="left">
   <img src="docs/images/Retrieve_Data.png" alt="Dashboard Preview" width="500">
 </div>
 
