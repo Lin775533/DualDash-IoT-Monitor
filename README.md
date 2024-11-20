@@ -248,11 +248,10 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
      - `iot:Subscribe`
      - `iot:Receive`
 
-### Security Notes
-- Never commit AWS credentials to GitHub
-- Keep certificates secure
-- Use environment variables for sensitive data
-- Follow AWS security best practices
+### AWS SNS Example
+<div align="center">
+  <img src="docs/images/AES_SNS_Warning.png" alt="Dashboard Preview" width="600">
+</div>
 
 
 ## Acknowledgments
