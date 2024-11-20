@@ -260,24 +260,6 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - Bootstrap for UI components
 - ESP8266 Community
 
-## Technical Skills Demonstrated
-1. **IoT Development**
-   - Sensor integration and calibration
-   - Real-time data acquisition
-   - MQTT protocol implementation
-   - Embedded systems programming
-
-2. **Full-Stack Development**
-   - RESTful API design
-   - Frontend development with React
-   - Backend development with Node.js
-   - Database design and management
-
-3. **Data Analysis**
-   - Real-time data processing
-   - Data visualization
-
-## System Architecture
 
 ### Hardware Components
 - ESP8266 NodeMCU
@@ -286,51 +268,9 @@ Detailed setup instructions available in our [Development Guide](docs/developmen
 - MPU6050 Accelerometer
 - LED for visual alerts
 - Buzzer for audio alerts
-
-### Software Components
-1. **Device Layer**
-   ```
-   ESP8266 Firmware
-   ├── Sensor Readings
-   │   ├── Temperature & Humidity (DHT11)
-   │   ├── Light Level (LDR)
-   │   └── Movement (MPU6050)
-   ├── Alert System
-   │   ├── LED Control
-   │   └── Buzzer Control
-   └── MQTT Client
-       └── Data Publishing
-   ```
-
-2. **Server Layer**
-   ```
-   Node.js Server
-   ├── MQTT Broker
-   │   ├── Topic: envmonitor/data
-   │   └── Topic: envmonitor/alerts
-   ├── MongoDB Database
-   │   ├── Sensor Readings Collection
-   │   └── Alerts Collection
-   └── REST API
-       ├── /api/data/latest
-       ├── /api/data/range
-       ├── /api/alerts
-       └── /api/stats
-   ```
-
-3. **Client Layer**
-```
-   Web Dashboard
-   ├── Real-time Display
-   │   ├── Current Sensor Values
-   │   └── Active Alerts
-   ├── Historical Data
-   │   ├── Temperature Chart
-   │   ├── Light Level Chart
-   │   └── Movement Chart
-   └── Statistics Panel
-       └── Min/Max/Avg Values
-```
+<div align="center">
+  <img src="docs/images/AWS_SNS.png" alt="Dashboard Preview" width="1000">
+</div>
 
 ### Data Flow
 ```mermaid
@@ -340,23 +280,4 @@ graph TD
     B -->|REST API| D[Web Dashboard]
     D -->|Display| E[Charts & Stats]
 
-```
-
-### Alert System
-```javascript
-// Device-side (ESP8266)
-if (sensorValue > threshold) {
-    triggerLocalAlert();  // LED + Buzzer
-    publishAlert();       // MQTT Alert
-}
-
-// Server-side
-mqtt.on('alert', (message) => {
-    io.emit('alert', message);  // WebSocket to dashboard
-});
-
-// Dashboard-side
-socket.on('alert', (message) => {
-    showNotification(message);
-});
 ```
